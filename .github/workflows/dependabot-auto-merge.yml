@@ -5,6 +5,7 @@ on:
     workflows: ["CI/CD: Continuous integration and continuous deployment"]
     types:
       - completed
+  pull_request:
 
 permissions:
   contents: write
@@ -13,7 +14,7 @@ permissions:
 jobs:
   dependabot-auto-merge:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.pull_request.user.login == 'dependabot[bot]' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot metadata
         id: dependabot-metadata
