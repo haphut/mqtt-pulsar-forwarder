@@ -5,7 +5,6 @@ on:
     workflows: ["CI/CD: Continuous integration and continuous deployment"]
     types:
       - completed
-  pull_request:
 
 permissions:
   contents: write
